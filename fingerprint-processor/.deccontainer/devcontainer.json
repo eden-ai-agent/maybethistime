@@ -1,0 +1,37 @@
+{
+    "name": "Fingerprint Processor Development",
+    "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-22.04",
+    
+    "features": {
+        "ghcr.io/devcontainers/features/cmake:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest"
+        }
+    },
+    
+    "postCreateCommand": [
+        "sudo apt update",
+        "sudo apt install -y libopencv-dev libsqlite3-dev build-essential",
+        "mkdir -p build test_data"
+    ],
+    
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.makefile-tools"
+            ],
+            "settings": {
+                "cmake.configureOnOpen": true,
+                "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+            }
+        }
+    },
+    
+    "forwardPorts": [],
+    "remoteUser": "vscode"
+}
